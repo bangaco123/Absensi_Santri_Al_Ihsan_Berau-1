@@ -9,7 +9,7 @@
 				INNER JOIN tb_mengajar ON _logabsensi.id_mengajar=tb_mengajar.id_mengajar
 				INNER JOIN tb_thajaran ON tb_mengajar.id_thajaran=tb_thajaran.id_thajaran
 				INNER JOIN tb_semester ON tb_mengajar.id_semester=tb_semester.id_semester
-				WHERE _logabsensi.id_santri='$data[id_santri]' and tb_thajaran.status=1 and tb_semester.status=1 ");
+				WHERE _logabsensi.id_santri='$data[id_santri]' and tb_thajaran.status and tb_semester.status");
 			foreach ($qry as $bulan) { ?>
 				<?php
 				$bulan = date('m', strtotime($bulan['tgl_absen']));
@@ -17,7 +17,7 @@
 				<div class="col-xl-12">
 					<div class="card text-left">
 						<div class="card-body">
-							<b class="text-secondary" style="text-transform: uppercase;">HARI <?= date('D-M-Y') ?></b>
+							<b class="text-secondary" style="text-transform: uppercase;">HARI <?= date('y-m-d') ?></b>
 							<hr>
 							<table cellpadding="5" width="100%">
 								<tr>

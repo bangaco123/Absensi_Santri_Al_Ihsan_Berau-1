@@ -54,7 +54,7 @@ foreach ($kelasMengajar as $d)
 				$bulan = date('m', strtotime($bulan['tgl_absen']));
 				?>
 
-				<a target="_blank" href="modul/rekap/rekap_bulan.php?pelajaran=<?= $_GET[pelajaran] ?>&bulan=<?= $bulan; ?>&kelas=<?= $d['id_mkelas'] ?>" style="text-decoration: none;" class="text-primary">
+				<a target="_blank" href="modul/rekap/rekap_bulan.php?pelajaran=<?= $_GET['pelajaran'] ?>&bulan=<?= $bulan; ?>&kelas=<?= $d['id_mkelas'] ?>" style="text-decoration: none;" class="text-primary">
 					<div class="alert alert-primary alert-dismissible" role="alert">
 						<strong>REKAP BULAN (<?= strtoupper(namaBulan($bulan)) ?> <?= strtoupper(date('Y')) ?>) </strong>
 					</div>

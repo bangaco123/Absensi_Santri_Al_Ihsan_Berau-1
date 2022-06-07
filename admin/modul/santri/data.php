@@ -36,6 +36,7 @@
                 <th>Nama santri</th>
                 <th>Kelas</th>
                 <th>Tahun Masuk</th>
+                <th>No Whatsapp</th>
                 <th>Status</th>
                 <th>Foto</th>
                 <th>Opsi</th>
@@ -55,6 +56,7 @@
                   <td><?= $g['nama_santri']; ?></td>
                   <td><?= $g['nama_kelas']; ?></td>
                   <td><?= $g['th_angkatan']; ?></td>
+                  <td><?= $g['no_wa']; ?></td>
                   <td><?php if ($g['status'] == 1) {
                         echo "<span class='badge badge-success'>Aktif</span>";
                       } else {

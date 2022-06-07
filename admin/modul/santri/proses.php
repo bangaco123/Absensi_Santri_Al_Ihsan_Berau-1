@@ -9,7 +9,7 @@ if (isset($_POST['saveSantri'])) {
 	$pindah = move_uploaded_file($sumber, $target . $nama_gambar);
 
 	if ($pindah) {
-		$save = mysqli_query($con, "INSERT INTO tb_santri VALUES(NULL,'$_POST[nis]','$_POST[nama]','$_POST[tempat]','$_POST[tgl]','$_POST[jk]','$_POST[alamat]','$pass','$nama_gambar','1','$_POST[th_masuk]','$_POST[kelas]') ");
+		$save = mysqli_query($con, "INSERT INTO tb_santri VALUES(NULL,'$_POST[nis]','$_POST[nama]','$_POST[tempat]','$_POST[tgl]','$_POST[jk]','$_POST[alamat]','$pass','$nama_gambar','1','$_POST[th_masuk]','$_POST[no_wa]','$_POST[kelas]') ");
 		if ($save) {
 			echo "
 				<script type='text/javascript'>

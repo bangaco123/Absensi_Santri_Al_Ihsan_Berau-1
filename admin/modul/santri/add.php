@@ -31,7 +31,7 @@
           <div class="card-body">
             <form action="?page=santri&act=proses" method="post" enctype="multipart/form-data">
               <table cellpadding="10" style="font-weight: bold;">
-              <hr>
+                <hr>
                 <tr>
                   <td>Nama Santri </td>
                   <td>:</td>
@@ -64,7 +64,7 @@
                   <td>:</td>
                   <td><textarea name="alamat" class="form-control" placeholder="Alamat Santri"></textarea></td>
                 </tr>
-        
+
                 <tr>
                   <td>Kelas santri</td>
                   <td>:</td>
@@ -86,6 +86,11 @@
                   <td>Tahun Masuk</td>
                   <td>:</td>
                   <td><input name="th_masuk" type="number" class="form-control" placeholder="2021-2022"></td>
+                </tr>
+                <tr>
+                  <td>No Whatsapp</td>
+                  <td>:</td>
+                  <td><input name="no_wa" type="number" class="form-control" placeholder="+62"></td>
                 </tr>
                 <tr>
                   <td>Pas Foto</td>

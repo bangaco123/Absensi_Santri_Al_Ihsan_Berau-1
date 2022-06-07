@@ -8,6 +8,7 @@ include 'config/db.php';
 ?>
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 	<title>Login Admin</title>
 	<meta charset="UTF-8">
@@ -35,6 +36,7 @@ include 'config/db.php';
 	<link rel="stylesheet" type="text/css" href="assets/css/main.css">
 	<!--===============================================================================================-->
 </head>
+
 <body style="background-color: #666666;">
 	<div class="limiter">
 		<div class="container-login100">
@@ -44,12 +46,12 @@ include 'config/db.php';
 						Login
 					</span>
 					<div class="wrap-input100 validate-input" data-validate="Valid email is required: ex@abc.xyz">
-						<input class="input100" type="text" name="username">
+						<input class="input100 has-val" type="text" name="username">
 						<span class="focus-input100"></span>
 						<span class="label-input100" data-placeholder="Username">username</span>
 					</div>
 					<div class="wrap-input100 validate-input" data-validate="password">
-						<input class="input100" type="password" name="password">
+						<input class="input100 has-val" type="password" name="password">
 						<span class="focus-input100"></span>
 						<span class="label-input100" data-placeholder="Password">Password</span>
 					</div>
@@ -60,7 +62,7 @@ include 'config/db.php';
 								<option value="1">GURU</option>
 								<option value="2">ORANG TUA SANTRI</option>
 							</select>
-					</div>
+						</div>
 					</div>
 					<div class="container-login100-form-btn">
 						<button type="submit" class="login100-form-btn">

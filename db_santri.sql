@@ -152,6 +152,7 @@ CREATE TABLE `tb_santri` (
   `foto` varchar(255) NOT NULL,
   `status` varchar(15) NOT NULL,
   `th_angkatan` year(4) NOT NULL,
+  `no_wa` varchar(13) NOT NULL,
   `id_mkelas` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -159,8 +160,6 @@ CREATE TABLE `tb_santri` (
 -- Dumping data untuk tabel `tb_santri`
 --
 
-INSERT INTO `tb_santri` (`id_santri`, `nis`, `nama_santri`, `tempat_lahir`, `tgl_lahir`, `jk`, `alamat`, `password`, `foto`, `status`, `th_angkatan`, `id_mkelas`) VALUES
-(6, '123', 'ruhul', 'BONTANG', '2022-05-11', 'L', 'dsasa', '40bd001563085fc35165329ea1ff5c5ecbdbbeef', 'undraw_profile.svg', '1', 2019, 8);
 
 -- --------------------------------------------------------
 

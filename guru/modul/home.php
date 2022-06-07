@@ -16,7 +16,7 @@
 				<div class="card-body">
 					<div class="card-title">
 						<center>
-							<img class="img-fluid px-3 px-sm-4 mt-3 mb-4" style="width: 29rem;" src="../assets/img/is.svg" width="80">
+							<img class="img-fluid px-3 px-sm-4 mt-3 mb-4" style="width: 29rem;" src="../assets/img/home.svg" width="80">
 						</center>
 					</div>
 					<div class="card-category">
