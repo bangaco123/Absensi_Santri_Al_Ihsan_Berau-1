@@ -98,7 +98,7 @@
                   <td><input type="file" class="form-control" name="foto"></td>
                 </tr>
                 <tr>
-                  <td colspan="3">
+                  <td colspan="3 mt-2">
                     <button name="saveSantri" type="submit" class="btn btn-secondary"><i class="fa fa-save"></i> Simpan</button>
                     <a href="javascript:history.back()" class="btn btn-danger"><i class="fa fa-times"></i> Batal</a>
                   </td>

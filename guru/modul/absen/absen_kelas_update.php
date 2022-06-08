@@ -10,23 +10,10 @@ INNER JOIN tb_thajaran ON tb_mengajar.id_thajaran=tb_thajaran.id_thajaran
 WHERE tb_mengajar.id_guru='$data[id_guru]' AND tb_mengajar.id_mengajar='$_GET[pelajaran]'  AND tb_thajaran.status=1  ");
 
 foreach ($kelasMengajar as $d)
-
-
-
 ?>
-
-
-
-<!-- 
-<div class="panel-header bg-primary-gradient">
-					<div class="page-inner py-5">
-						
-					</div>
-				</div> -->
 <div class="page-inner">
-
     <div class="page-header">
-        <!-- <h4 class="page-title">KELAS (<?= strtoupper($d['nama_kelas']) ?> )</h4> -->
+        <h4 class="page-title">KELAS (<?= strtoupper($d['nama_kelas']) ?> )</h4>
         <ul class="breadcrumbs" style="font-weight: bold;">
             <li class="nav-home">
                 <a href="#">
@@ -46,20 +33,16 @@ foreach ($kelasMengajar as $d)
                 <a href="#"><?= strtoupper($d['mapel']) ?></a>
             </li>
         </ul>
-
     </div>
 
-
     <div class="row">
-
         <div class="col-md-8 col-xs-12">
             <?php
             // tampilkan jika da yg izin hari ini
             // tampilkan sataurs izin
             $today = date('Y-m-d'); // tanggal sekarang
             $queryIzin = mysqli_query($con, "SELECT * FROM tb_santri 
-
-								WHERE  tb_santri.id_mkelas=" . $d['id_mkelas']);
+            WHERE  tb_santri.id_mkelas=" . $d['id_mkelas']);
             foreach ($queryIzin as $si) { ?>
 
                 <div class="alert alert-danger alert-dismissible" role="alert">
@@ -69,7 +52,6 @@ foreach ($kelasMengajar as $d)
                     <strong class="text-warning">( <?= $si['nama_santri'] ?> )</strong> Mengajukan permintaan izin pada hari
                     ini <b> <a href="?page=absen&act=surat_view&izin=<?= $si['id_izin']; ?>"> Lihat permintaan ?</a></b>
                 </div>
-
             <?php } ?>
 
             <?php
@@ -79,7 +61,7 @@ foreach ($kelasMengajar as $d)
             $jml = mysqli_fetch_array($last_pertemuan);
 
             if ($cekPertemuan > 0) {
-                $pertemuan = $jml['pertemuan_ke'] + 1;
+                $pertemuan = $jml['pertemuan_ke'];
             } else {
                 $pertemuan = 1;
             }
@@ -90,18 +72,8 @@ foreach ($kelasMengajar as $d)
             <div class="card">
                 <div class="card-body">
                     <form action="" method="post">
-                        <!-- <div class="card-title fw-mediumbold">DAFTAR HADIR santri</div> -->
-                        <!-- 			<p>
-									<span class="badge badge-default" style="padding: 7px;font-size: 14px;"><b>Daftar Hadir santri</b>
-									</span>
-									<span class="badge badge-primary" style="padding: 7px;font-size: 14px;">
-									Pertemuan Ke : <b><?= $pertemuan; ?></b>
-									</span>
-									</p> -->
-                        <!-- <input type="date" name="tgl" class="form-control" value="<?= date('Y-m-d') ?>" style="background-color: #212121;color: #FFEB3B;">	 -->
                         <input type="hidden" name="pertemuan" class="form-control" value="<?= $pertemuan; ?>">
                         <input type="hidden" name="pelajaran" value="<?= $_GET['pelajaran'] ?>">
-
                         <table>
                             <?php
 
@@ -135,12 +107,14 @@ foreach ($kelasMengajar as $d)
                                                                                                                                 } ?>>
                                                 <span class="form-check-sign">I</span>
                                             </label>
+
                                             <label class="form-check-label">
                                                 <input name="ket-<?= $i; ?>" class="form-check-input" type="checkbox" value="S" <?php if ($s['ket'] == 'S') {
                                                                                                                                     echo "checked";
                                                                                                                                 } ?>>
                                                 <span class="form-check-sign">S</span>
                                             </label>
+
                                             <label class="form-check-label">
                                                 <input name="ket-<?= $i; ?>" class="form-check-input" type="checkbox" value="T" <?php if ($s['ket'] == 'T') {
                                                                                                                                     echo "checked";
@@ -155,17 +129,12 @@ foreach ($kelasMengajar as $d)
                                                 <span class="form-check-sign">A</span>
                                             </label>
 
-
-
                                             <label class="form-check-label">
                                                 <input name="ket-<?= $i; ?>" class="form-check-input" type="checkbox" value="C" <?php if ($s['ket'] == 'C') {
                                                                                                                                     echo "checked";
                                                                                                                                 } ?>>
                                                 <span class="form-check-sign">C</span>
                                             </label>
-
-
-
 
                                         </div>
                                     </td>
@@ -233,24 +202,8 @@ foreach ($kelasMengajar as $d)
 											</script>";
                     }
                 }
-            }
-
-            ?>
-
+            } ?>
         </div>
-        <!-- <center>
-<span class="alert alert-success">
-<i class="text-primary">H : (Hadir)</i>
-<i class="text-info">I : (Izin)</i>
-<i class="text-warning">S : (Sakit)</i>
-<i class="text-danger">A : (Alfa)</i>
-</span>
-</center> -->
     </div>
-
-
-
-
 </div>
-
 </div>
