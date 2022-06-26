@@ -38,23 +38,6 @@ foreach ($kelasMengajar as $d)
     <div class="row">
         <div class="col-md-8 col-xs-12">
             <?php
-            // tampilkan jika da yg izin hari ini
-            // tampilkan sataurs izin
-            $today = date('Y-m-d'); // tanggal sekarang
-            $queryIzin = mysqli_query($con, "SELECT * FROM tb_santri 
-            WHERE  tb_santri.id_mkelas=" . $d['id_mkelas']);
-            foreach ($queryIzin as $si) { ?>
-
-                <div class="alert alert-danger alert-dismissible" role="alert">
-                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                        <!-- <span aria-hidden="true">&times;</span> -->
-                    </button>
-                    <strong class="text-warning">( <?= $si['nama_santri'] ?> )</strong> Mengajukan permintaan izin pada hari
-                    ini <b> <a href="?page=absen&act=surat_view&izin=<?= $si['id_izin']; ?>"> Lihat permintaan ?</a></b>
-                </div>
-            <?php } ?>
-
-            <?php
             // dapatkan pertemuan terakhir di tb izin
             $last_pertemuan = mysqli_query($con, "SELECT * FROM _logabsensi WHERE id_mengajar='$_GET[pelajaran]'ORDER BY pertemuan_ke DESC LIMIT 1  ");
             $cekPertemuan = mysqli_num_rows($last_pertemuan);
@@ -66,11 +49,13 @@ foreach ($kelasMengajar as $d)
                 $pertemuan = 1;
             }
 
-
             ?>
 
-            <div class="card">
+            <hr>
+            <div class="card col-8">
                 <div class="card-body">
+                    <h2>Update Absen Santri</h2>
+                    <hr>
                     <form action="" method="post">
                         <input type="hidden" name="pertemuan" class="form-control" value="<?= $pertemuan; ?>">
                         <input type="hidden" name="pelajaran" value="<?= $_GET['pelajaran'] ?>">
@@ -84,6 +69,7 @@ foreach ($kelasMengajar as $d)
                             $jumlahsantri = mysqli_num_rows($santri);
 
                             foreach ($santri as $i => $s) { ?>
+
                                 <tr>
                                     <td>
                                         <b class="text-success"><?= $s['nama_santri']; ?></b>
@@ -93,6 +79,7 @@ foreach ($kelasMengajar as $d)
                                         } ?>
                                         <input type="hidden" name="id_santri-<?= $i; ?>" value="<?= $s['id_santri'] ?>">
                                         <div class="form-check">
+
 
                                             <label class="form-check-label">
                                                 <input name="ket-<?= $i; ?>" class="form-check-input" type="checkbox" value="H" <?php if ($s['ket'] == 'H') {
@@ -116,24 +103,10 @@ foreach ($kelasMengajar as $d)
                                             </label>
 
                                             <label class="form-check-label">
-                                                <input name="ket-<?= $i; ?>" class="form-check-input" type="checkbox" value="T" <?php if ($s['ket'] == 'T') {
-                                                                                                                                    echo "checked";
-                                                                                                                                } ?>>
-                                                <span class="form-check-sign">T</span>
-                                            </label>
-
-                                            <label class="form-check-label">
                                                 <input name="ket-<?= $i; ?>" class="form-check-input" type="checkbox" value="A" <?php if ($s['ket'] == 'A') {
                                                                                                                                     echo "checked";
                                                                                                                                 } ?>>
                                                 <span class="form-check-sign">A</span>
-                                            </label>
-
-                                            <label class="form-check-label">
-                                                <input name="ket-<?= $i; ?>" class="form-check-input" type="checkbox" value="C" <?php if ($s['ket'] == 'C') {
-                                                                                                                                    echo "checked";
-                                                                                                                                } ?>>
-                                                <span class="form-check-sign">C</span>
                                             </label>
 
                                         </div>
@@ -141,20 +114,17 @@ foreach ($kelasMengajar as $d)
                                 </tr>
                             <?php } ?>
                         </table>
-
-
-
-
                 </div>
-                <!-- <input type="submit" name="absen" class="btn btn-info"> -->
+
                 <center>
+
                     <button type="submit" name="update" class="btn btn-success">
                         <i class="fa fa-check"></i> Update Absensi
                     </button>
 
                     <a href="javascript:history.back()" class="btn btn-default"><i class="fas fa-arrow-circle-left"></i>
                         Kembali</a>
-
+                    <hr>
                 </center>
             </div>
             </form>

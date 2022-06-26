@@ -90,7 +90,7 @@
                 <tr>
                   <td>No Whatsapp</td>
                   <td>:</td>
-                  <td><input name="no_wa" type="number" class="form-control" placeholder="+621234567890"></td>
+                  <td><input name="no_wa" type="text" class="form-control" placeholder="+621234567890"></td>
                 </tr>
                 <tr>
                   <td>Pas Foto</td>
