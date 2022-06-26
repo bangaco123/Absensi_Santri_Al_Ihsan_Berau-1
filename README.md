@@ -18,7 +18,8 @@ UNTUK GURU DAN ORANGTUA SANTRI
  PASS   : 111
  
 BUAT MELIHAT PRODUK 
-link view demo : https://tugasweb004.000webhostapp.com/
+link view demo       : https://tugasweb004.000webhostapp.com/
+link untuk ke admin  : https://tugasweb004.000webhostapp.com/admin/
 
 UNTUK ADMIN
 USER  :admin
