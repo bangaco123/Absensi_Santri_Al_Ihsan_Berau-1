@@ -15,14 +15,6 @@ foreach ($kelasMengajar as $d)
 
 ?>
 
-
-
-<!-- 
-<div class="panel-header bg-primary-gradient">
-					<div class="page-inner py-5">
-						
-					</div>
-				</div> -->
 <div class="page-inner">
 
 	<div class="page-header">
@@ -55,12 +47,12 @@ foreach ($kelasMengajar as $d)
 
 		<?php
 		// dapatkan pertemuan terakhir di tb izin
-		$last_pertemuan = mysqli_query($con, "SELECT * FROM _logabsensi WHERE id_mengajar='$_GET[pelajaran]' GROUP BY pertemuan_ke");
+		$last_pertemuan = mysqli_query($con, "SELECT * FROM _logabsensi WHERE id_mengajar='$_GET[pelajaran]' GROUP BY pertemuan_ke ORDER BY pertemuan_ke DESC LIMIT 1  ");
 		$cekPertemuan = mysqli_num_rows($last_pertemuan);
 		$jml = mysqli_fetch_array($last_pertemuan);
 
 		if ($cekPertemuan > 0) {
-			$pertemuan = +1;
+			$pertemuan = $jml['pertemuan_ke'] + 1;
 		} else {
 			$pertemuan = 1;
 		}
@@ -71,7 +63,6 @@ foreach ($kelasMengajar as $d)
 		<div class="card">
 			<div class="card-body">
 				<form action="" method="post">
-					<!-- <div class="card-title fw-mediumbold">DAFTAR HADIR santri</div> -->
 					<p>
 						<span class="badge badge-default" style="padding: 7px;font-size: 14px;"><b>Daftar Hadir santri</b>
 						</span>
@@ -81,10 +72,6 @@ foreach ($kelasMengajar as $d)
 					</p>
 
 					<div class="card-list">
-
-
-
-
 						<input type="date" name="tgl" class="form-control" value="<?= date('Y-m-d') ?>" style="background-color: #212121;color: #FFEB3B;">
 
 						<input type="hidden" name="pertemuan" class="form-control" value="<?= $pertemuan; ?>">
@@ -100,10 +87,8 @@ foreach ($kelasMengajar as $d)
 								<div class="avatar">
 									<img src="../assets/img/user/<?= $s['foto'] ?>" class="avatar-img rounded-circle">
 								</div>
-
 								<div class="info-user">
 									<div class="username">
-
 										<b class="text-success"><?= $s['nama_santri'] ?></b>
 
 										(<code><?= $s['nis'] ?></code>)
@@ -131,23 +116,22 @@ foreach ($kelasMengajar as $d)
 												<input name="ket-<?= $i; ?>" class="form-check-input" type="checkbox" value="A">
 												<span class="form-check-sign">A</span>
 											</label>
-
 										</div>
 									</div>
 								</div>
+
 							</div>
 						<?php } ?>
 
 					</div>
+
 					<center>
 						<button type="submit" name="absen" class="btn btn-success">
 							<i class="fa fa-check"></i> Selesai
 						</button>
-						<a href="?page=absen&act=update&pelajaran=<?= $_GET['pelajaran']; ?>" class="btn btn-warning">
-							<i class="fas fa-edit"></i> Update Absesnsi</a>
+						<a href="?page=absen&act=update&pelajaran=<?= $_GET['pelajaran']; ?>" class="btn btn-warning"><i class="fas fa-edit"></i> Update Absesnsi</a>
+						<!-- 	<a href="index.php" class="btn btn-default"><i class="fas fa-arrow-circle-left"></i> Kembali</a> -->
 
-						<a href="index.php" class="btn btn-default"><i class="fas fa-arrow-circle-left">
-							</i> Kembali</a>
 					</center>
 			</div>
 			</form>
@@ -166,9 +150,11 @@ foreach ($kelasMengajar as $d)
 					$ket = $_POST['ket-' . $i];
 
 
-					$cekAbsesnHariIni = mysqli_num_rows(mysqli_query($con, "SELECT * FROM _logabsensi 
-					WHERE tgl_absen='$today' AND id_mengajar='$pelajaran' AND id_santri='$id_santri' "));
+					$cekAbsesnHariIni = mysqli_num_rows(mysqli_query($con, "SELECT * FROM _logabsensi WHERE tgl_absen='$today' AND id_mengajar='$pelajaran' AND id_santri='$id_santri' "));
+
 					if ($cekAbsesnHariIni > 0) {
+
+
 						echo "
 													<script type='text/javascript'>
 													setTimeout(function () { 

@@ -1,6 +1,7 @@
 <div class="card">
 	<div class="card-body">
-		<h4 class="card-title">SANTRI | <b style="text-transform: uppercase;"><code> <?= $data['nama_santri'] ?> </code></b></h4>
+
+		<h4 class="card-title">Kehadiran | <b style="text-transform: uppercase;"><code> <?= $data['nama_santri'] ?> </code></b></h4>
 		<hr>
 		<div class="row">
 			<?php
@@ -9,15 +10,18 @@
 				INNER JOIN tb_mengajar ON _logabsensi.id_mengajar=tb_mengajar.id_mengajar
 				INNER JOIN tb_thajaran ON tb_mengajar.id_thajaran=tb_thajaran.id_thajaran
 				INNER JOIN tb_semester ON tb_mengajar.id_semester=tb_semester.id_semester
-				WHERE _logabsensi.id_santri='$data[id_santri]' and tb_thajaran.status and tb_semester.status");
+				WHERE _logabsensi.id_santri='$data[id_santri]' and tb_thajaran.status=1 and tb_semester.status=1
+				GROUP BY MONTH(tgl_absen) ORDER BY MONTH(tgl_absen) DESC");
+
 			foreach ($qry as $bulan) { ?>
 				<?php
 				$bulan = date('m', strtotime($bulan['tgl_absen']));
 				?>
+
 				<div class="col-xl-12">
 					<div class="card text-left">
 						<div class="card-body">
-							<b class="text-secondary" style="text-transform: uppercase;">HARI <?= date('y-m-d') ?></b>
+							<b class="text-primary" style="text-transform: uppercase;">BULAN <?= 'namaBulan'($bulan); ?> <?= date('Y') ?></b>
 							<hr>
 							<table cellpadding="5" width="100%">
 								<tr>
@@ -69,4 +73,4 @@
 	</div>
 </div>
 
-<a href="javascript:history.back()" class="btn btn-secondary btn-block"><i class="fas fa-arrow-circle-left"></i> Kembali</a>
+<a href="javascript:history.back()" class="btn btn-default btn-block"><i class="fas fa-arrow-circle-left"></i> Kembali</a>
