@@ -38,7 +38,6 @@ include '../config/db.php';
 </head>
 
 <body style="background-color: #666666;">
-
 	<div class="limiter">
 		<div class="container-login100">
 			<div class="wrap-login100">
@@ -46,20 +45,16 @@ include '../config/db.php';
 					<span class="login100-form-title p-b-43">
 						Login
 					</span>
-
 					<div class="wrap-input100 validate-input" data-validate="Valid email is required: ex@abc.xyz">
 						<input class="input100 has-val" type="text" name="username">
 						<span class="focus-input100"></span>
 						<span class="label-input100" data-placeholder="Username">Nama User</span>
 					</div>
-
-
 					<div class="wrap-input100 validate-input" data-validate="password">
 						<input class="input100 has-val" type="password" name="password">
 						<span class="focus-input100"></span>
 						<span class="label-input100" data-placeholder="Password">Kata sandi</span>
 					</div>
-
 					<div class="container-login100-form-btn">
 						<button type="submit" class="login100-form-btn">
 							<i class="fa fa-sign-in fa-lg">masuk</i>
@@ -68,7 +63,6 @@ include '../config/db.php';
 				</form>
 				<div class="login100-more" style="background-image: url('../assets/img/as.jpg');">
 				</div>
-
 				<?php
 				if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 					$pass = sha1($_POST['password']);
@@ -78,8 +72,6 @@ include '../config/db.php';
 
 					if ($jml > 0) {
 						$_SESSION['admin'] = $d['id_admin'];
-
-
 						echo "
 									<script type='text/javascript'>
 									setTimeout(function () { 

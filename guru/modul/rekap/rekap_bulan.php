@@ -116,6 +116,7 @@ $tglTerakhir = date('t', strtotime(1));
 			echo "<td bgcolor='#EFEBE9' align='center'>" . $i . "</td>";
 		}
 		?>
+		<td></td>
 		<td bgcolor="#FFC107" align="center">S</td>
 		<td bgcolor="#4CAF50" align="center">I</td>
 		<td bgcolor="#D50000" align="center">A</td>
@@ -136,7 +137,7 @@ $tglTerakhir = date('t', strtotime(1));
 			<td><?= $ds['nama_santri']; ?></td>
 			<td align="center"><?= $ds['jk']; ?></td>
 			<?php
-			for ($i = 1; $i <= $tglTerakhir; $i++) {
+			for ($i = 0; $i <= $tglTerakhir; $i++) {
 
 			?>
 				<td align="center" bgcolor="white">

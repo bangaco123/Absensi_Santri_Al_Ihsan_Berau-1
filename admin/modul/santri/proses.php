@@ -1,21 +1,33 @@
 <?php
 
 if (isset($_POST['saveSantri'])) {
-
 	$pass = sha1($_POST['nis']);
 	$sumber = @$_FILES['foto']['tmp_name'];
 	$target = '../assets/img/user/';
 	$nama_gambar = @$_FILES['foto']['name'];
 	$pindah = move_uploaded_file($sumber, $target . $nama_gambar);
 
-	if ($pindah) {
-		$save = mysqli_query($con, "INSERT INTO tb_santri VALUES(NULL,'$_POST[nis]','$_POST[nama]','$_POST[tempat]','$_POST[tgl]','$_POST[jk]','$_POST[alamat]','$pass','$nama_gambar','1','$_POST[th_masuk]','$_POST[no_wa]','$_POST[kelas]') ");
-		if ($save) {
-			echo "
+	$a = $_POST['nis'];
+	$b = $_POST['nama'];
+	$c = $_POST['tempat'];
+	$d = $_POST['tgl'];
+	$f = $_POST['jk'];
+	$g = $_POST['alamat'];
+	$h = $_POST['kelas'];
+
+	$q = mysqli_query($con, "SELECT * FROM tb_santri WHERE nis='$a'");
+	$cek = mysqli_num_rows($q);
+	if ($cek == 0) {
+		if ($pindah) {
+			$simpan = mysqli_query($con, "INSERT INTO tb_santri VALUES(NULL,'$_POST[nis]','$_POST[nama]','$_POST[tempat]','$_POST[tgl]','$_POST[jk]','$_POST[alamat]',
+		'$pass','$nama_gambar','1','$_POST[th_masuk]','$_POST[no_wa]','$_POST[kelas]') ");
+
+			if ($simpan) {
+				echo "
 				<script type='text/javascript'>
 				setTimeout(function () { 
 
-				swal('($_POST[nama]) ', 'Berhasil disimpan', {
+				swal('($_POST[nama])','Berhasil Di Tamabah' ,{
 				icon : 'success',
 				buttons: {        			
 				confirm: {
@@ -28,7 +40,26 @@ if (isset($_POST['saveSantri'])) {
 				window.location.replace('?page=santri');
 				} ,3000);   
 				</script>";
+			}
 		}
+	} else {
+		echo "
+				<script type='text/javascript'>
+				setTimeout(function () { 
+
+				swal('Gagal Menamabah NIS Telah Di Pakai ', '($_POST[nis]) ',{
+				icon : 'error',
+				buttons: {        			
+				confirm: {
+				className : 'btn btn-danger'
+				}
+				},
+				});    
+				},10);  
+				window.setTimeout(function(){ 
+				window.location.replace('?page=santri&act=add');
+				} ,3000);   
+				</script>";
 	}
 } elseif (isset($_POST['editSantri'])) {
 

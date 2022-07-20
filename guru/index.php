@@ -27,6 +27,7 @@ INNER JOIN tb_thajaran ON tb_mengajar.id_thajaran=tb_thajaran.id_thajaran
 WHERE tb_mengajar.id_guru='$data[id_guru]' AND tb_thajaran.status=1 ");
 
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -37,6 +38,7 @@ WHERE tb_mengajar.id_guru='$data[id_guru]' AND tb_thajaran.status=1 ");
 	<link rel="icon" href="../assets/img/h.png" type="image/x-icon" />
 	<!-- Fonts and icons -->
 	<script src="../assets/js/plugin/webfont/webfont.min.js"></script>
+
 	<script>
 		WebFont.load({
 			google: {
@@ -63,6 +65,7 @@ WHERE tb_mengajar.id_guru='$data[id_guru]' AND tb_thajaran.status=1 ");
 <body>
 	<div class="wrapper">
 		<div class="main-header">
+
 			<!-- Logo Header -->
 			<div class="logo-header" data-background-color="green">
 
@@ -85,7 +88,7 @@ WHERE tb_mengajar.id_guru='$data[id_guru]' AND tb_thajaran.status=1 ");
 			<!-- End Logo Header -->
 
 			<!-- Navbar Header -->
-			<nav class="navbar navbar-header navbar-expand-lg bg-success-gradient">
+			<nav class="navbar navbar-header navbar-expand-lg" data-background-color="green">
 				<div class="container-fluid">
 					<ul class="navbar-nav topbar-nav ml-md-auto align-items-center">
 						<li class="nav-item dropdown hidden-caret">
@@ -102,7 +105,7 @@ WHERE tb_mengajar.id_guru='$data[id_guru]' AND tb_thajaran.status=1 ");
 											<div class="u-text">
 												<h4><?= $data['nama_guru'] ?></h4>
 												<p class="text-muted"><?= $data['email'] ?></p>
-												<a href="?page=jadwal" class="btn btn-xs btn-secondary btn-sm">Jadwal Kegiatan</a>
+												<a href="?page=jadwal" class="btn btn-xs btn-success btn-sm">Jadwal Kegiatan</a>
 											</div>
 										</div>
 									</li>
@@ -151,7 +154,7 @@ WHERE tb_mengajar.id_guru='$data[id_guru]' AND tb_thajaran.status=1 ");
 							</div>
 						</div>
 					</div>
-					<ul class="nav nav-secondary">
+					<ul class="nav nav-success">
 						<li class="nav-item active">
 							<a href="index.php" class="collapsed">
 								<i class="fas fa-home"></i>
@@ -192,6 +195,7 @@ WHERE tb_mengajar.id_guru='$data[id_guru]' AND tb_thajaran.status=1 ");
 								</ul>
 							</div>
 						</li>
+
 						<li class="nav-item">
 							<a data-toggle="collapse" href="#rekapAbsen">
 								<i class="fas fa-list-alt"></i>
@@ -213,12 +217,14 @@ WHERE tb_mengajar.id_guru='$data[id_guru]' AND tb_thajaran.status=1 ");
 								</ul>
 							</div>
 						</li>
+
 						<li class="nav-item active mt-3">
 							<a href="logout.php" class="collapsed">
 								<i class="fas fa-times"></i>
 								<p>Logout</p>
 							</a>
 						</li>
+
 					</ul>
 				</div>
 			</div>
@@ -266,6 +272,8 @@ WHERE tb_mengajar.id_guru='$data[id_guru]' AND tb_thajaran.status=1 ");
 
 				<!-- end -->
 			</div>
+
+			<!-- footer -->
 			<footer class="footer">
 				<div class="container">
 					<div class="copyright ml-auto">
@@ -273,6 +281,8 @@ WHERE tb_mengajar.id_guru='$data[id_guru]' AND tb_thajaran.status=1 ");
 					</div>
 				</div>
 			</footer>
+			<!-- End footer -->
+
 		</div>
 	</div>
 	<!--   Core JS Files   -->

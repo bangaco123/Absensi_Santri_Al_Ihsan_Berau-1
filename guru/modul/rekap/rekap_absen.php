@@ -35,11 +35,14 @@ foreach ($kelasMengajar as $d)
 			</li>
 		</ul>
 	</div>
-
-
 	<div class="row">
-
 		<div class="col-md-12 col-xs-12 mt-3">
+			<a target="_blank" href="modul/rekap/rekap_persemester.php?pelajaran=
+			<?= $_GET['pelajaran'] ?>&kelas=<?= $d['id_mkelas'] ?>" style="text-decoration: none;" class="text-success">
+				<div class="alert alert-success alert-dismissible" role="alert">
+					<strong>REKAP SEMESTER (<?= strtoupper($d['semester']) ?> - <b><?= strtoupper($d['tahun_ajaran']) ?></b>)</strong>
+				</div>
+			</a>
 			<?php
 			// tampilkan data absen setiap bulan, berdasarkan tahun ajaran yg aktif
 			$qry = mysqli_query($con, "SELECT * FROM _logabsensi
@@ -48,12 +51,10 @@ foreach ($kelasMengajar as $d)
 			INNER JOIN tb_semester ON tb_mengajar.id_semester=tb_semester.id_semester
 			WHERE _logabsensi.id_mengajar='$_GET[pelajaran]' and tb_thajaran.status=1 and tb_semester.status=1
 			GROUP BY MONTH(tgl_absen) ORDER BY MONTH(tgl_absen) DESC");
-
 			foreach ($qry as $bulan) { ?>
 				<?php
 				$bulan = date('m', strtotime($bulan['tgl_absen']));
 				?>
-
 				<a target="_blank" href="modul/rekap/rekap_bulan.php?pelajaran=<?= $_GET['pelajaran'] ?>&bulan=<?= $bulan; ?>&kelas=<?= $d['id_mkelas'] ?>" style="text-decoration: none;" class="text-primary">
 					<div class="alert alert-primary alert-dismissible" role="alert">
 						<strong>REKAP BULAN (<?= strtoupper(namaBulan($bulan)) ?> <?= strtoupper(date('d')) ?>) </strong>
@@ -61,10 +62,8 @@ foreach ($kelasMengajar as $d)
 				</a>
 			<?php } ?>
 		</div>
-
 	</div>
 	<center>
 		<a href="javascript:history.back()" class="btn btn-default"><i class="fas fa-arrow-circle-left"></i> Kembali</a>
 	</center>
-
 </div>

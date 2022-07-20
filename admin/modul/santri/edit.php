@@ -39,7 +39,7 @@
 								<tr>
 									<td>Nama Santri</td>
 									<td>:</td>
-									<td><input type="text" class="form-control" name="nama" value="<?= $d['nama_santri'] ?>"></td>
+									<td><input type="text" class="form-control" name="nama" value="<?= $d['nama_santri'] ?>" autofocus required></td>
 								</tr>
 								<tr>
 									<td>Nonor Induk Santri</td>
@@ -49,9 +49,9 @@
 								<tr>
 									<td>Tempat,Tanggal Lahir </td>
 									<td>:</td>
-									<td><input type="text" class="form-control" name="tempat" value="<?= $d['tempat_lahir'] ?>"></td>
+									<td><input type="text" class="form-control" name="tempat" value="<?= $d['tempat_lahir'] ?>" autofocus required></td>
 									<td>/</td>
-									<td><input type="date" class="form-control" name="tgl" value="<?= $d['tgl_lahir'] ?>"></td>
+									<td><input type="text" class="form-control" name="tgl" value="<?= $d['tgl_lahir'] ?>" autofocus required></td>
 								</tr>
 								<tr>
 									<td>Jenis Kelamin </td>
@@ -66,14 +66,14 @@
 								<tr>
 									<td>Alamat Santri</td>
 									<td>:</td>
-									<td><textarea name="alamat" class="form-control"><?= $d['alamat'] ?></textarea></td>
+									<td><textarea name="alamat" class="form-control" autofocus required><?= $d['alamat'] ?></textarea></td>
 								</tr>
 
 								<tr>
 									<td>Kelas santri</td>
 									<td>:</td>
 									<td>
-										<select class="form-control" name="kelas">
+										<select class="form-control" name="kelas" autofocus required>
 											<option>Pilih Kelas</option>
 											<?php
 											$sqlKelas = mysqli_query($con, "SELECT * FROM tb_Mkelas ORDER BY id_mkelas ASC");
@@ -94,7 +94,7 @@
 								<tr>
 									<td>Tahun Masuk</td>
 									<td>:</td>
-									<td><input name="th_masuk" type="number" class="form-control" value="<?= $d['th_angkatan'] ?>"></td>
+									<td><input name="th_masuk" type="number" class="form-control" value="<?= $d['th_angkatan'] ?>" autofocus required></td>
 								</tr>
 								<tr>
 									<td>Pas Foto</td>

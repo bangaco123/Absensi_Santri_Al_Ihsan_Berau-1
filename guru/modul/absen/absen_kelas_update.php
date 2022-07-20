@@ -71,46 +71,45 @@ foreach ($kelasMengajar as $d)
                             foreach ($santri as $i => $s) { ?>
 
                                 <tr>
-                                    <td>
+                                    <div class="col-lg">
                                         <b class="text-success"><?= $s['nama_santri']; ?></b>
                                         <?php if ($s['ket'] == '') {
-
                                             echo "<span class='text-danger'>Belum Absen</span>";
                                         } ?>
                                         <input type="hidden" name="id_santri-<?= $i; ?>" value="<?= $s['id_santri'] ?>">
-                                        <div class="form-check">
+                                        <div class="form-check form-check-inline">
 
 
                                             <label class="form-check-label">
-                                                <input name="ket-<?= $i; ?>" class="form-check-input" type="checkbox" value="H" <?php if ($s['ket'] == 'H') {
+                                                <input name="ket-<?= $i; ?>" class="form-check-input" type="radio" value="H" <?php if ($s['ket'] == 'H') {
                                                                                                                                     echo "checked";
                                                                                                                                 } ?>>
                                                 <span class="form-check-sign">H</span>
                                             </label>
 
                                             <label class="form-check-label">
-                                                <input name="ket-<?= $i; ?>" class="form-check-input" type="checkbox" value="I" <?php if ($s['ket'] == 'I') {
+                                                <input name="ket-<?= $i; ?>" class="form-check-input" type="radio" value="I" <?php if ($s['ket'] == 'I') {
                                                                                                                                     echo "checked";
                                                                                                                                 } ?>>
                                                 <span class="form-check-sign">I</span>
                                             </label>
 
                                             <label class="form-check-label">
-                                                <input name="ket-<?= $i; ?>" class="form-check-input" type="checkbox" value="S" <?php if ($s['ket'] == 'S') {
+                                                <input name="ket-<?= $i; ?>" class="form-check-input" type="radio" value="S" <?php if ($s['ket'] == 'S') {
                                                                                                                                     echo "checked";
                                                                                                                                 } ?>>
                                                 <span class="form-check-sign">S</span>
                                             </label>
 
                                             <label class="form-check-label">
-                                                <input name="ket-<?= $i; ?>" class="form-check-input" type="checkbox" value="A" <?php if ($s['ket'] == 'A') {
+                                                <input name="ket-<?= $i; ?>" class="form-check-input" type="radio" value="A" <?php if ($s['ket'] == 'A') {
                                                                                                                                     echo "checked";
                                                                                                                                 } ?>>
                                                 <span class="form-check-sign">A</span>
                                             </label>
 
                                         </div>
-                                    </td>
+                                        </td>
                                 </tr>
                             <?php } ?>
                         </table>
@@ -118,7 +117,7 @@ foreach ($kelasMengajar as $d)
 
                 <center>
 
-                    <button type="submit" name="update" class="btn btn-success">
+                    <button type="submit" name="update" class="btn btn-success mb-1">
                         <i class="fa fa-check"></i> Update Absensi
                     </button>
 

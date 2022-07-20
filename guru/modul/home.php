@@ -1,9 +1,9 @@
-<div class="panel-header bg-success-gradient">
+<div class="card-header bg-success-gradient text-white bubble-shadow">
 	<div class="page-inner py-5">
 		<div class="d-flex align-items-left align-items-md-center flex-column flex-md-row">
 			<div>
 				<h2 class="text-white pb-2 fw-bold">GURU</h2>
-				<h5 class="text-white op-7 mb-2">Selamat Datang, <b class="text-warning"><?= $data['nama_guru']; ?></b> | Aplikasi Monitoring Santri</h5>
+				<h5 class="text-white op-7 mb-2">Selamat Datang, <b class="text-warning"><?= $data['nama_guru']; ?></b> | Aplikasi Monitoring Santri Pondok Al-ihsan Berau</h5>
 			</div>
 
 		</div>

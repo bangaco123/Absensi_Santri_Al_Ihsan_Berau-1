@@ -26,7 +26,7 @@
       <div class="card">
         <div class="card-header">
           <div class="card-title">
-            <a href="?page=jadwal&act=add" class="btn btn-secondary btn-sm text-white"><i class="fa fa-plus"></i> Tambah</a>
+            <a href="?page=jadwal&act=add" class="btn btn-success btn-sm text-white"><i class="fa fa-plus"></i> Tambah</a>
           </div>
         </div>
 
@@ -37,7 +37,7 @@
                 <tr>
                   <th>No.</th>
                   <th>Nama Guru</th>
-                  <th>Mata Pelajaran</th>
+                  <th>Mata Kegiatan</th>
                   <th>Kelas</th>
                   <th>TP/Semester</th>
                   <th>Opsi </th>

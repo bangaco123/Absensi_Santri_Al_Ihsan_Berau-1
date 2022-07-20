@@ -4,17 +4,17 @@
 -->
 <?php
 session_start();
-include 'config/db.php';
+include './config/db.php';
 ?>
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
-	<title>Login Admin</title>
+	<title>Login</title>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<!--===============================================================================================-->
-	<link rel="icon" type="image/png" href="assets/img/h.png" />
+	<link rel="icon" type="image/png" href="/assets/img/h.png" />
 	<!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href="assets/vendor/bootstrap/css/bootstrap.min.css">
 	<!--===============================================================================================-->
@@ -45,32 +45,32 @@ include 'config/db.php';
 					<span class="login100-form-title p-b-43">
 						Login
 					</span>
-					<div class="wrap-input100 validate-input" data-validate="Valid email is required: ex@abc.xyz">
+					<div class="wrap-input100 validate-input" data-validate="Valid email is required: ex@abc.xyz" autofocus required>
 						<input class="input100 has-val" type="text" name="username">
 						<span class="focus-input100"></span>
-						<span class="label-input100" data-placeholder="Username">username</span>
+						<span class="label-input100" data-placeholder="Username" autofocus required>username</span>
 					</div>
-					<div class="wrap-input100 validate-input" data-validate="password">
+					<div class="wrap-input100 validate-input" data-validate="password" autofocus required>
 						<input class="input100 has-val" type="password" name="password">
 						<span class="focus-input100"></span>
-						<span class="label-input100" data-placeholder="Password">Password</span>
+						<span class="label-input100" data-placeholder="Password" autofocus required>Password</span>
 					</div>
-					<div class="flex-sb-m w-full p-t-3 p-b-4">
+					<div class="flex-sb-lg w-full p-t-3 p-b-4">
 						<div class="form-group mb-3">
 							<select class="form-control" name="level">
-								<option>-----------------------User------------------------</option>
+								<option>USER</option>
 								<option value="1">GURU</option>
 								<option value="2">ORANG TUA SANTRI</option>
 							</select>
 						</div>
 					</div>
 					<div class="container-login100-form-btn">
-						<button type="submit" class="login100-form-btn">
-							<i class="fa fa-sign-in fa-lg">masuk</i>
+						<button type="submit" class="login100-form-btn bg-dark">
+							<i class="fa fa-sign-in fa-lg"> masuk</i>
 						</button>
 					</div>
 				</form>
-				<div class="login100-more" style=" background-image: url('../as/assets/img/as.jpg');">
+				<div class="login100-more" style=" background-image: url('./assets/img/as.jpg');">
 				</div>
 				<?php
 				if ($_SERVER['REQUEST_METHOD'] == 'POST') {
@@ -81,7 +81,6 @@ include 'config/db.php';
 						$sqlCek = mysqli_query($con, "SELECT * FROM tb_guru WHERE nip='$_POST[username]' AND password='$pass' AND status='Y'");
 						$jml = mysqli_num_rows($sqlCek);
 						$d = mysqli_fetch_array($sqlCek);
-
 						if ($jml > 0) {
 							$_SESSION['guru'] = $d['id_guru'];
 							echo "
@@ -125,11 +124,8 @@ include 'config/db.php';
 						$sqlCek = mysqli_query($con, "SELECT * FROM tb_santri WHERE nis='$_POST[username]' AND password='$pass' AND status='1'");
 						$jml = mysqli_num_rows($sqlCek);
 						$d = mysqli_fetch_array($sqlCek);
-
 						if ($jml > 0) {
 							$_SESSION['santri'] = $d['id_santri'];
-
-
 							echo "
 								<script type='text/javascript'>
 								setTimeout(function () { 
@@ -168,33 +164,46 @@ include 'config/db.php';
 						}
 					} elseif ($level == 3) {
 					} else {
-						echo "Tidak ada level yg dipilih";
+						echo "<script type='text/javascript'>
+								setTimeout(function () { 
+								swal('Sorry!', 'Pilih Level User', {
+								icon : 'error',
+								buttons: {        			
+								confirm: {
+								className : 'btn btn-danger'
+								}
+								},
+								});    
+								},10);  
+								window.setTimeout(function(){ 
+								window.location.replace('./');
+								} ,1000);   
+								</script>";
 					}
 				}
 				?>
-
 			</div>
 		</div>
 	</div>
 	<div id="dropDownSelect1"></div>
 	<!--===============================================================================================-->
-	<script src="assets/_login/vendor/jquery/jquery-3.2.1.min.js"></script>
+	<script src="./assets/vendor/jquery/jquery-3.2.1.min.js"></script>
 	<!--===============================================================================================-->
-	<script src="assets/_login/vendor/animsition/js/animsition.min.js"></script>
+	<script src="./assets/vendor/animsition/js/animsition.min.js"></script>
 	<!--===============================================================================================-->
-	<script src="assets/_login/vendor/bootstrap/js/popper.js"></script>
-	<script src="assets/_login/vendor/bootstrap/js/bootstrap.min.js"></script>
+	<script src="./assets/vendor/bootstrap/js/popper.js"></script>
+	<script src="./assets/vendor/bootstrap/js/bootstrap.min.js"></script>
 	<!--===============================================================================================-->
-	<script src="assets/_login/vendor/select2/select2.min.js"></script>
+	<script src="./assets/vendor/select2/select2.min.js"></script>
 	<!--===============================================================================================-->
-	<script src="assets/_login/vendor/daterangepicker/moment.min.js"></script>
-	<script src="assets/_login/vendor/daterangepicker/daterangepicker.js"></script>
+	<script src="./assets/vendor/daterangepicker/moment.min.js"></script>
+	<script src="./assets/vendor/daterangepicker/daterangepicker.js"></script>
 	<!--===============================================================================================-->
-	<script src="assets/_login/vendor/countdowntime/countdowntime.js"></script>
+	<script src="./assets/vendor/countdowntime/countdowntime.js"></script>
 	<!--===============================================================================================-->
 	<!-- Sweet Alert -->
 	<script src="assets/js/plugin/sweetalert/sweetalert.min.js"></script>
-	<script src="assets/_login/js/main.js"></script>
+	<script src="./assets/js/main.js"></script>
 
 
 </body>

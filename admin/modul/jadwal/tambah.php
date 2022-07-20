@@ -37,21 +37,21 @@ $semAktif = mysqli_fetch_array(mysqli_query($con, "SELECT * FROM tb_semester WHE
 
 						<div class="row">
 							<div class="col-md-4">
-								<div class="form-group">
+								<div class="form-group" required>
 									<label for="kode">Kode Kegiatan</label>
 									<input name="kode" type="text" class="form-control" id="kode" value="KH-<?= date('d-y'); ?>" readonly>
 								</div>
 							</div>
 							<div class="col-md-4">
-								<div class="form-group">
-									<label>Tahun Pelajaran</label>
+								<div class="form-group" required>
+									<label>Tahun Ajaran</label>
 									<input type="hidden" name="ta" value="<?= $taAktif['id_thajaran'] ?>">
 									<input type="hidden" name="semester" value="<?= $semAktif['id_semester'] ?>">
 									<input type="text" class="form-control" placeholder="<?= $taAktif['tahun_ajaran'] ?>" readonly>
 								</div>
 							</div>
 							<div class="col-md-4">
-								<div class="form-group">
+								<div class="form-group" required>
 									<label for="kode">Semester</label>
 									<input type="text" class="form-control" placeholder="<?= $semAktif['semester'] ?>" readonly>
 								</div>
@@ -61,8 +61,8 @@ $semAktif = mysqli_fetch_array(mysqli_query($con, "SELECT * FROM tb_semester WHE
 						<div class="row">
 							<div class="col-md-6">
 								<div class="form-group">
-									<label>Guru Mata Pelajaran</label>
-									<select name="guru" class="form-control">
+									<label>Guru Mata Kegiatan</label>
+									<select name="guru" class="form-control" required>
 										<option value="">- Pilih -</option>
 										<?php
 										$guru = mysqli_query($con, "SELECT * FROM tb_guru ORDER BY id_guru ASC");
@@ -77,7 +77,7 @@ $semAktif = mysqli_fetch_array(mysqli_query($con, "SELECT * FROM tb_semester WHE
 							<div class="col-md-6">
 								<div class="form-group">
 									<label>Mata Kegiatan</label>
-									<select name="mapel" class="form-control">
+									<select name="mapel" class="form-control" required>
 										<option value="">- Pilih -</option>
 										<?php
 										$mapel = mysqli_query($con, "SELECT * FROM tb_master_mapel ORDER BY id_mapel ASC");
@@ -92,10 +92,10 @@ $semAktif = mysqli_fetch_array(mysqli_query($con, "SELECT * FROM tb_semester WHE
 
 						<div class="row">
 							<div class="col-md-6">
-								<div class="form-check">
+								<div class="form-check" required>
 									<label>Hari</label><br />
 									<label class="form-radio-label">
-										<input class="form-radio-input" type="radio" name="hari" value="Senin">
+										<input class="form-radio-input" type="radio" name="hari" value="Senin" required>
 										<span class="form-radio-sign">Senin</span>
 									</label>
 									<label class="form-radio-label">
@@ -123,7 +123,7 @@ $semAktif = mysqli_fetch_array(mysqli_query($con, "SELECT * FROM tb_semester WHE
 
 							<div class="col-md-6">
 								<label>Kelas</label>
-								<select name="kelas" class="form-control">
+								<select name="kelas" class="form-control" required>
 									<option value="">- Pilih -</option>
 									<?php
 									$kelas = mysqli_query($con, "SELECT * FROM tb_mkelas ORDER BY id_mkelas ASC");
@@ -140,13 +140,13 @@ $semAktif = mysqli_fetch_array(mysqli_query($con, "SELECT * FROM tb_semester WHE
 							<div class="col-md-6">
 								<div class="form-group">
 									<label for="waktu">Waktu</label>
-									<input name="waktu" type="text" class="form-control" id="waktu" placeholder="00.00 - 00.00">
+									<input name="waktu" type="text" class="form-control" id="waktu" placeholder="00.00 - 00.00" required>
 								</div>
 							</div>
 							<div class="col-md-6">
 								<div class="form-group">
 									<label for="jamke">Jam Ke</label>
-									<input name="jamke" type="text" class="form-control" id="jamke" placeholder="1 - 10">
+									<input name="jamke" type="text" class="form-control" id="jamke" placeholder="1" required>
 								</div>
 							</div>
 						</div>
@@ -164,9 +164,7 @@ $semAktif = mysqli_fetch_array(mysqli_query($con, "SELECT * FROM tb_semester WHE
 						</div>
 					</form>
 					<?php
-
 					if (isset($_POST['save'])) {
-
 
 						$kode = $_POST['kode'];
 						$ta = $_POST['ta'];
@@ -178,7 +176,9 @@ $semAktif = mysqli_fetch_array(mysqli_query($con, "SELECT * FROM tb_semester WHE
 						$waktu = $_POST['waktu'];
 						$jamke = $_POST['jamke'];
 
-						$insert = mysqli_query($con, "INSERT INTO tb_mengajar VALUES (NULL,'$kode','$hari','$waktu','$jamke','$guru','$mapel','$kelas','$semester','$ta' ) ");
+						$insert = mysqli_query($con, "INSERT INTO tb_mengajar VALUES 
+						(NULL,'$kode','$hari','$waktu','$jamke','$guru','$mapel','$kelas',
+						'$semester','$ta' ) ");
 
 						if ($insert) {
 							echo "
@@ -198,16 +198,12 @@ $semAktif = mysqli_fetch_array(mysqli_query($con, "SELECT * FROM tb_semester WHE
 								window.location.replace('?page=jadwal');
 								} ,3000);   
 								</script>";
+						} else {
+							echo "gagal";
 						}
 					}
-
-
 					?>
-
-
-
 				</div>
-
 			</div>
 		</div>
 	</div>

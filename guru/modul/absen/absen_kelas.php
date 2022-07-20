@@ -17,8 +17,8 @@ foreach ($kelasMengajar as $d)
 
 <div class="page-inner">
 
-	<div class="page-header">
-		<!-- <h4 class="page-title">KELAS (<?= strtoupper($d['nama_kelas']) ?> )</h4> -->
+	<!-- <div class="page-header">
+		<h4 class="page-title">KELAS (<?= strtoupper($d['nama_kelas']) ?> )</h4>
 		<ul class="breadcrumbs" style="font-weight: bold;">
 			<li class="nav-home">
 				<a href="#">
@@ -38,16 +38,13 @@ foreach ($kelasMengajar as $d)
 				<a href="#"><?= strtoupper($d['mapel']) ?></a>
 			</li>
 		</ul>
+	</div> -->
 
-	</div>
-
-
-	<div class="row">
-
-
+	<div class="row p-6">
 		<?php
-		// dapatkan pertemuan terakhir di tb izin
-		$last_pertemuan = mysqli_query($con, "SELECT * FROM _logabsensi WHERE id_mengajar='$_GET[pelajaran]' GROUP BY pertemuan_ke ORDER BY pertemuan_ke DESC LIMIT 1  ");
+		// dapatkan pertemuan terakhir 
+		$last_pertemuan = mysqli_query($con, "SELECT * FROM _logabsensi WHERE id_mengajar='$_GET[pelajaran]' 
+		GROUP BY pertemuan_ke ORDER BY pertemuan_ke DESC LIMIT 1  ");
 		$cekPertemuan = mysqli_num_rows($last_pertemuan);
 		$jml = mysqli_fetch_array($last_pertemuan);
 
@@ -56,11 +53,9 @@ foreach ($kelasMengajar as $d)
 		} else {
 			$pertemuan = 1;
 		}
-
-
 		?>
 
-		<div class="card">
+		<div class="col-5 card">
 			<div class="card-body">
 				<form action="" method="post">
 					<p>
@@ -73,13 +68,11 @@ foreach ($kelasMengajar as $d)
 
 					<div class="card-list">
 						<input type="date" name="tgl" class="form-control" value="<?= date('Y-m-d') ?>" style="background-color: #212121;color: #FFEB3B;">
-
 						<input type="hidden" name="pertemuan" class="form-control" value="<?= $pertemuan; ?>">
 						<?php
-
 						// tampilakan data santri berdasarkan kelas yang dipilih
-
-						$santri = mysqli_query($con, "SELECT * FROM tb_santri WHERE id_mkelas='$d[id_mkelas]' ORDER BY id_santri ASC ");
+						$santri = mysqli_query($con, "SELECT * FROM tb_santri WHERE id_mkelas='$d[id_mkelas]'
+						 ORDER BY id_santri ASC ");
 						$jumlahsantri = mysqli_num_rows($santri);
 						foreach ($santri as $i => $s) { ?>
 
@@ -89,33 +82,55 @@ foreach ($kelasMengajar as $d)
 								</div>
 								<div class="info-user">
 									<div class="username">
-										<b class="text-success"><?= $s['nama_santri'] ?></b>
-
+										<h3 class="text-success"><?= $s['nama_santri'] ?></h3>
 										(<code><?= $s['nis'] ?></code>)
 										<input type="hidden" name="id_santri-<?= $i; ?>" value="<?= $s['id_santri'] ?>">
-
 										<input type="hidden" name="pelajaran" value="<?= $_GET['pelajaran'] ?>">
 									</div>
-									<div class="status mt-0">
-										<div class="form-check">
-											<label class="form-check-label">
-												<input name="ket-<?= $i; ?>" class="form-check-input" type="checkbox" value="H">
+									<div class="status">
+										<div class="form-check form-check-inline" required>
+
+											<label class="form-check">
+												<input name="ket-<?= $i; ?>" class="form-check-input" type="radio" value="H">
 												<span class="form-check-sign">H</span>
 											</label>
 
-											<label class="form-check-label">
-												<input name="ket-<?= $i; ?>" class="form-check-input" type="checkbox" value="I">
+											<!-- <label class="selectgroup-item">
+												<input type="radio" name="ket-<?= $i; ?>" value="H" class="selectgroup-input" required>
+												<span class="selectgroup-button selectgroup-button-icon">H</span>
+											</label> -->
+
+											<label class="form-check 	">
+												<input name="ket-<?= $i; ?>" class="form-check-input" type="radio" value="I" required>
 												<span class="form-check-sign">I</span>
 											</label>
-											<label class="form-check-label">
-												<input name="ket-<?= $i; ?>" class="form-check-input" type="checkbox" value="S">
+
+											<!-- <label class="selectgroup-item">
+												<input type="radio" name="ket-<?= $i; ?>" value="I" class="selectgroup-input" required>
+												<span class="selectgroup-button selectgroup-button-icon">I</span>
+											</label> -->
+
+
+											<label class="form-check">
+												<input name="ket-<?= $i; ?>" class="form-check-input" type="radio" value="S" required>
 												<span class="form-check-sign">S</span>
 											</label>
 
-											<label class="form-check-label">
-												<input name="ket-<?= $i; ?>" class="form-check-input" type="checkbox" value="A">
+											<!-- <label class="selectgroup-item">
+												<input type="radio" name="ket-<?= $i; ?>" value="S" class="selectgroup-input" required>
+												<span class="selectgroup-button selectgroup-button-icon">S</span>
+											</label> -->
+
+											<label class="form-check">
+												<input name="ket-<?= $i; ?>" class="form-check-input" type="radio" value="A" required>
 												<span class="form-check-sign">A</span>
 											</label>
+
+											<!-- <label class="selectgroup-item">
+												<input type="radio" name="ket-<?= $i; ?>" value="A" class="selectgroup-input" required>
+												<span class="selectgroup-button selectgroup-button-icon">A</span>
+											</label> -->
+
 										</div>
 									</div>
 								</div>
@@ -126,12 +141,11 @@ foreach ($kelasMengajar as $d)
 					</div>
 
 					<center>
-						<button type="submit" name="absen" class="btn btn-success">
+						<button type="submit" name="absen" class="btn btn-success mb-1">
 							<i class="fa fa-check"></i> Selesai
 						</button>
 						<a href="?page=absen&act=update&pelajaran=<?= $_GET['pelajaran']; ?>" class="btn btn-warning"><i class="fas fa-edit"></i> Update Absesnsi</a>
 						<!-- 	<a href="index.php" class="btn btn-default"><i class="fas fa-arrow-circle-left"></i> Kembali</a> -->
-
 					</center>
 			</div>
 			</form>
@@ -205,10 +219,3 @@ foreach ($kelasMengajar as $d)
 
 		</div>
 	</div>
-
-
-
-
-</div>
-
-</div>

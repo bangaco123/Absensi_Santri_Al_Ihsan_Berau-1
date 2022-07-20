@@ -26,7 +26,7 @@
       <div class="card">
         <div class="card-header">
           <div class="card-title">
-            <a href="" class="btn btn-secondary btn-sm text-white" data-toggle="modal" data-target="#addSemester"><i class="fa fa-plus"></i> Tambah</a>
+            <a href="" class="btn btn-success btn-sm text-white" data-toggle="modal" data-target="#addSemester"><i class="fa fa-plus"></i> Tambah</a>
           </div>
         </div>
         <div class="card-body">
@@ -72,7 +72,7 @@
                       ?>
 
 
-                      <a href="" class="btn btn-secondary btn-sm" data-toggle="modal" data-target="#edit<?= $k['id_semester'] ?>"><i class="far fa-edit"></i> Edit</a>
+                      <a href="" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#edit<?= $k['id_semester'] ?>"><i class="far fa-edit"></i> Edit</a>
                       <a class="btn btn-danger btn-sm" onclick="return confirm('Yakin Hapus Data ??')" href="?page=master&act=delsemester&id=<?= $k['id_semester'] ?>">
                         <i class="fas fa-trash"></i> Del</a>
 
@@ -90,8 +90,8 @@
                                   <div class="col-md-10">
                                     <div class="form-group">
                                       <label>Semester</label>
-                                      <input name="id" type="hidden" value="<?= $k['id_semester'] ?>">
-                                      <input name="semester" type="text" value="<?= $k['semester'] ?>" class="form-control">
+                                      <input name="id" type="hidden" value="<?= $k['id_semester'] ?>" required>
+                                      <input name="semester" type="text" value="<?= $k['semester'] ?>" class="form-control" required>
                                     </div>
 
                                     <div class="form-group">
@@ -151,11 +151,11 @@
         <form action="" method="post" class="form-horizontal">
           <div class="form-group">
             <label>Semester</label>
-            <input name="semester" type="text" placeholder="Nama semester .." class="form-control">
+            <input name="semester" type="text" placeholder="Nama semester .." class="form-control" required>
           </div>
 
           <div class="form-group">
-            <button name="save" class="btn btn-secondary" type="submit">Save</button>
+            <button name="save" class="btn btn-success" type="submit">Save</button>
           </div>
         </form>
         <?php

@@ -110,7 +110,7 @@ function hari_ini()
 function namahari($tanggalnya)
 {
 	//fungsi mencari namahari
-	
+
 	$tgl = substr($tanggalnya, 8, 2);
 	$bln = substr($tanggalnya, 5, 2);
 	$thn = substr($tanggalnya, 0, 4);

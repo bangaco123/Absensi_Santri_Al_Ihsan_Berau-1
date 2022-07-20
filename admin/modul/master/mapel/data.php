@@ -22,11 +22,11 @@
     </ul>
   </div>
   <div class="row">
-    <div class="col-md-12">
+    <div class="col-md-8">
       <div class="card">
         <div class="card-header">
           <div class="card-title ">
-            <a href="" class="btn btn-secondary btn-sm text-white" data-toggle="modal" data-target="#myModal"><i class="fa fa-plus"></i> Tambah</a>
+            <a href="" class="btn btn-success btn-sm text-white" data-toggle="modal" data-target="#myModal"><i class="fa fa-plus"></i> Tambah</a>
           </div>
         </div>
         <div class="card-body">
@@ -35,8 +35,7 @@
               <thead>
                 <tr>
                   <th>#</th>
-                  <th>Kode</th>
-                  <th>Nama Mapel</th>
+                  <th>Nama Kegiatan</th>
                   <th>Opsi</th>
                 </tr>
               </thead>
@@ -48,7 +47,7 @@
                   <tr>
                     <td><?= $no++; ?>.</td>
 
-                    <td><?= $k['kode_mapel']; ?></td>
+
                     <td><?= $k['mapel']; ?></td>
                     <td>
 
@@ -60,7 +59,7 @@
                         <div class="modal-dialog">
                           <div class="modal-content">
                             <div class="modal-header">
-                              <h4 id="exampleModalLabel" class="modal-title">Edit Mapel</h4>
+                              <h4 id="exampleModalLabel" class="modal-title">Edit kegiatan</h4>
                               <button type="button" data-dismiss="modal" aria-label="Close" class="close"><span aria-hidden="true">×</span></button>
                             </div>
                             <div class="modal-body">
@@ -68,13 +67,13 @@
                                 <div class="row">
                                   <div class="col-md-10">
                                     <div class="form-group">
-                                      <label>Nama mapel</label>
+                                      <label>Nama kegiatan</label>
                                       <input name="id" type="hidden" value="<?= $k['id_mapel'] ?>">
                                       <input name="mapel" type="text" value="<?= $k['mapel'] ?>" class="form-control">
                                     </div>
 
                                     <div class="form-group">
-                                      <button name="edit" class="btn btn-secondary" type="submit">Edit</button>
+                                      <button name="edit" class="btn btn-success" type="submit">Edit</button>
 
                                     </div>
                                   </div>
@@ -125,33 +124,70 @@
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h4 id="exampleModalLabel" class="modal-title">Tambah Mapel</h4>
+        <h4 id="exampleModalLabel" class="modal-title">Tambah kegiatan</h4>
         <button type="button" data-dismiss="modal" aria-label="Close" class="close"><span aria-hidden="true">×</span></button>
       </div>
       <div class="modal-body">
         <form action="" method="post" class="form-horizontal">
           <div class="form-group">
-            <label>Kode mapel</label>
+            <label>Kode kegiatan</label>
             <input name="kode" type="text" value="MP-<?= date('d-y') ?>" class="form-control" readonly>
           </div>
           <div class="form-group">
-            <label>Nama mapel</label>
-            <input name="mapel" type="text" placeholder="Nama mapel .." class="form-control">
+            <label>Nama kegiatan</label>
+            <input name="mapel" type="text" placeholder="Nama Kegiatan" class="form-control" required>
           </div>
 
 
           <div class="form-group">
-            <button name="save" class="btn btn-secondary" type="submit">Save</button>
+            <button name="save" class="btn btn-success" type="submit">Save</button>
           </div>
         </form>
         <?php
         if (isset($_POST['save'])) {
-          $save = mysqli_query($con, "INSERT INTO tb_master_mapel VALUES(NULL,'$_POST[kode]','$_POST[mapel]') ");
-          if ($save) {
-            echo "<script>
-                        alert('Data tersimpan !');
-                        window.location='?page=master&act=mapel';
-                        </script>";
+          $a = $_POST['kode'];
+          $b = $_POST['mapel'];
+
+          $q = mysqli_query($con, "SELECT * FROM tb_master_mapel WHERE mapel='$b'");
+          $cek = mysqli_num_rows($q);
+
+          if ($cek == 0) {
+            $save = mysqli_query($con, "INSERT INTO tb_master_mapel VALUES(NULL,'$_POST[kode]','$_POST[mapel]') ");
+            if ($save) {
+              echo "<script type='text/javascript'>
+				setTimeout(function () { 
+
+				swal('($_POST[mapel])','Berhasil Di Tambah' ,{
+				icon : 'success',
+				buttons: {        			
+				confirm: {
+				className : 'btn btn-success'
+				}
+				},
+				});    
+				},10);  
+				window.setTimeout(function(){ 
+				window.location.replace('?page=master&act=mapel');
+				} ,3000);   
+				</script>";
+            }
+          } else {
+            echo "<script type='text/javascript'>
+				setTimeout(function () { 
+
+				swal('($_POST[mapel])','Data Sudah Di Pakai' ,{
+				icon : 'error',
+				buttons: {        			
+				confirm: {
+				className : 'btn btn-danger'
+				}
+				},
+				});    
+				},10);  
+				window.setTimeout(function(){ 
+				window.location.replace('?page=master&act=mapel');
+				} ,3000);   
+				</script>";
           }
         }
 

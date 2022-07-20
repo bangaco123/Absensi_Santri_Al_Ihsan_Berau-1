@@ -24,7 +24,7 @@
 				</li>
 			</ul>
 		</div>
-		<div class="row">
+		<div class="row was-validated">
 			<div class="col-lg-8">
 				<div class="card">
 					<div class="card-header d-flex align-items-center">
@@ -38,14 +38,14 @@
 								<input name="nip" type="text" class="form-control" value="<?= $d['nip'] ?>" readonly>
 							</div>
 
-							<div class="form-group">
+							<div class="form-group ">
 								<label>Nama Guru</label>
-								<input name="nama" type="text" class="form-control" value="<?= $d['nama_guru'] ?>">
+								<input name="nama" type="text" class="form-control" value="<?= $d['nama_guru'] ?>" required>
 							</div>
 
 							<div class="form-group">
 								<label>Email</label>
-								<input name="email" type="text" class="form-control" value="<?= $d['email'] ?>">
+								<input name="email" type="text" class="form-control" value="<?= $d['email'] ?>" required>
 							</div>
 
 							<div class="form-group">

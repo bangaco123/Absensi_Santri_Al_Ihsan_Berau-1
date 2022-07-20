@@ -29,28 +29,28 @@
           <h3 class="h4">Masukkan Data Guru</h3>
         </div>
         <div class="card-body">
-          <form action="?page=guru&act=proses" method="post" enctype="multipart/form-data">
+          <form action="?page=guru&act=proses" method="post" enctype="multipart/form-data" required>
             <div class="form-group">
               <label>NIP/NUPTK</label>
-              <input name="nip" type="text" class="form-control" placeholder="NIP/NUPTK">
+              <input name="nip" type="text" class="form-control" placeholder="NIP/NUPTK" required>
             </div>
 
             <div class="form-group">
               <label>Nama Guru</label>
-              <input name="nama" type="text" class="form-control" placeholder="Nama dan Gelar">
+              <input name="nama" type="text" class="form-control" placeholder="Nama dan Gelar" required>
             </div>
 
             <div class="form-group">
               <label>Email</label>
-              <input name="email" type="text" class="form-control" placeholder="Email">
+              <input name="email" type="text" class="form-control" placeholder="Email" required>
             </div>
 
-            <div class="form-group">
+            <div class="form-group" required>
               <p>
-                <img src="../assets/img/user/<?= $data['foto']; ?>" class="img-fluid rounded-circle kotak" style="height: 65px; width: 65px;">
+                <img src="../assets/img/user/<?= $data['foto']; ?>" class="img-fluid rounded-circle kotak" style="height: 65px; width: 65px;" required>
               </p>
               <label>Foto</label>
-              <input type="file" name="foto">
+              <input type="file" name="foto" required>
             </div>
 
 
