@@ -4,31 +4,19 @@ NAMA      : MUHAMMAD RIZKY RUHUL F
 NIM       : 18112437
 JURUSAN   : TI (Murni)
 
-UNTUK LOGIN ADMIN
-USER  : admin
-PASS  : asd
 
-UNTUK GURU DAN ORANGTUA SANTRI
- GURU 
- NIP  : 003
- PASS : 003
-  
- ORANG TUA SANTRI MEMASUKKAN NIS ANAK NYA 
- NIS    : 111
- PASS   : 111
- 
 BUAT MELIHAT PRODUK 
-link view demo       : https://tugasweb004.000webhostapp.com/
-link untuk ke admin  : https://tugasweb004.000webhostapp.com/admin/
+link view demo       : http://aplikasimonitoringalihsan.rf.gd/
+link untuk ke admin  : http://aplikasimonitoringalihsan.rf.gd/admin/
 
 UNTUK ADMIN
-USER  :admin
+USER  :ruhul
 PASS  :asd
 
 UNTUK GURU
- NIP  : 002
- PASS : 002
+NIP  : 002
+PASS : 002
  
 UNTUK ORANG TUA SANTRI 
-NIS    : 123
-PASS   : 123
+NIS    : 030632022
+Pass : 030632022
