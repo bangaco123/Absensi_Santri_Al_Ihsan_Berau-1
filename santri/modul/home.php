@@ -5,11 +5,9 @@
         <h2 class="text-white pb-2 fw-bold">SANTRI</h2>
         <h5 class="text-white op-7 mb-2">Selamat Datang, <b class="text-warning"><?= $data['nama_santri']; ?></b> | Aplikasi Monitoring Santri Pondok Al-ihsan Berau</h5>
       </div>
-
     </div>
   </div>
 </div>
-
 <div class="page-inner mt--5">
   <div class="row mt--2">
     <div class="col-md-6">
@@ -28,11 +26,9 @@
               <br>Telp.(0554) 22176
             </center>
           </div>
-
         </div>
       </div>
     </div>
-
     <div class="col-md-6">
       <div class="card">
         <div class="card-body">
@@ -43,7 +39,6 @@
                 Absensi
               </a>
             </li>
-
             <li class="nav-item">
               <a class="nav-link" id="pills-contact-tab-icon" data-toggle="pill" href="#pills-contact-icon" role="tab" aria-controls="pills-contact-icon" aria-selected="false">
                 <i class="fas fa-user-astronaut"></i>
@@ -71,9 +66,5 @@
         </div>
       </div>
     </div>
-
-
-
-
   </div>
 </div>

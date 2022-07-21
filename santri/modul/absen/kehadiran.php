@@ -121,3 +121,4 @@ foreach ($kelasMengajar as $d)
 				<a href="javascript:history.back()" class="btn btn-default btn-block"><i class="fas fa-arrow-circle-left"></i> Kembali</a>
 			</div>
 		</div>
+</div>

@@ -11,7 +11,7 @@
 	</div>
 </div>
 <div class="page-inner ">
-	<div class="row mt--2">
+	<div class="row mt--5">
 		<div class="col-md-6">
 			<div class="card full-height">
 				<div class="card-body">

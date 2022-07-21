@@ -69,7 +69,9 @@ if (isset($_POST['saveSantri'])) {
 		$ganti = mysqli_query($con, "UPDATE tb_santri SET foto='$gambar' WHERE id_santri='$_POST[id]' ");
 	}
 
-	$editSantri = mysqli_query($con, "UPDATE tb_santri SET nama_santri='$_POST[nama]',tempat_lahir='$_POST[tempat]',tgl_lahir='$_POST[tgl]',jk='$_POST[jk]',alamat='$_POST[alamat]',id_mkelas='$_POST[kelas]',th_angkatan='$_POST[th_masuk]' WHERE id_santri='$_POST[id]' ");
+	$editSantri = mysqli_query($con, "UPDATE tb_santri SET nama_santri='$_POST[nama]',
+	tempat_lahir='$_POST[tempat]',tgl_lahir='$_POST[tgl]',jk='$_POST[jk]',alamat='$_POST[alamat]',
+	id_mkelas='$_POST[kelas]',th_angkatan='$_POST[th_masuk]' WHERE id_santri='$_POST[id]' ");
 	if ($editSantri) {
 		echo "
 				<script type='text/javascript'>

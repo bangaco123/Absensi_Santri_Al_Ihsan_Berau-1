@@ -27,7 +27,7 @@
         <div class="card-header">
           <div class="card-title">
             <div class="d-flex align-items-center">
-              <h2>Data Santri</h2>
+              <h2>Data Guru</h2>
               <a href="?page=guru&act=add" class="btn btn btn-success btn-round ml-auto text-white">
                 <i class="fa fa-plus"></i>
                 Tambah
@@ -40,7 +40,6 @@
         </div>
         <div class="card-body">
           <div class="d-flex align-items-center">
-            <h2>Data Santri</h2>
             <div class="table-responsive">
               <table id="basic-datatables" class="display table table-striped table-hover">
                 <thead>

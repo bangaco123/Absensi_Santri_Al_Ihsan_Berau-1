@@ -269,7 +269,7 @@
 								<div class="collapse" id="rekapAbsen">
 									<ul class="nav nav-collapse">
 										<?php
-										$kelas = mysqli_query($con, "SELECT * FROM tb_mkelas ORDER BY id_mkelas ASC");
+										$kelas = mysqli_query($con, "SELECT * FROM tb_mkelas ORDER BY id_mkelas");
 										foreach ($kelas as $k) { ?>
 											<li>
 												<a href="?page=rekap&kelas=<?= $k['id_mkelas'] ?> ">

@@ -211,7 +211,7 @@ $tglTerakhir = date('t', strtotime(1));
 	<?php } ?>
 </table>
 
-
+<br>
 <table width="100%">
 	<tr>
 		<td align="right">
