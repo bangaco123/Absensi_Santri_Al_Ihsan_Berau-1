@@ -40,6 +40,12 @@
               </a>
             </li>
             <li class="nav-item">
+              <a class="nav-link" href="?page=kehadiran&act=diagram">
+                <i class="fas fa-clipboard-list"></i>
+                Diangram Data
+              </a>
+            </li>
+            <li class="nav-item">
               <a class="nav-link" id="pills-contact-tab-icon" data-toggle="pill" href="#pills-contact-icon" role="tab" aria-controls="pills-contact-icon" aria-selected="false">
                 <i class="fas fa-user-astronaut"></i>
                 About

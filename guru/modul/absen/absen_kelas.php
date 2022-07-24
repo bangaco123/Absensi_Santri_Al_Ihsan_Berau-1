@@ -17,7 +17,7 @@ foreach ($kelasMengajar as $d)
 
 <div class="page-inner">
 
-	<!-- <div class="page-header">
+	<div class="page-header">
 		<h4 class="page-title">KELAS (<?= strtoupper($d['nama_kelas']) ?> )</h4>
 		<ul class="breadcrumbs" style="font-weight: bold;">
 			<li class="nav-home">
@@ -38,7 +38,7 @@ foreach ($kelasMengajar as $d)
 				<a href="#"><?= strtoupper($d['mapel']) ?></a>
 			</li>
 		</ul>
-	</div> -->
+	</div>
 
 	<div class="row p-6">
 		<?php
@@ -72,7 +72,7 @@ foreach ($kelasMengajar as $d)
 						<?php
 						// tampilakan data santri berdasarkan kelas yang dipilih
 						$santri = mysqli_query($con, "SELECT * FROM tb_santri WHERE id_mkelas='$d[id_mkelas]'
-						 ORDER BY id_santri ASC ");
+						ORDER BY id_santri ASC ");
 						$jumlahsantri = mysqli_num_rows($santri);
 						foreach ($santri as $i => $s) { ?>
 
@@ -86,6 +86,7 @@ foreach ($kelasMengajar as $d)
 										(<code><?= $s['nis'] ?></code>)
 										<input type="hidden" name="id_santri-<?= $i; ?>" value="<?= $s['id_santri'] ?>">
 										<input type="hidden" name="pelajaran" value="<?= $_GET['pelajaran'] ?>">
+										<input type="hidden" name="mapel" value="<?= $_GET['mapel'] ?>">
 									</div>
 									<div class="status">
 										<div class="form-check form-check-inline" required>
@@ -152,7 +153,6 @@ foreach ($kelasMengajar as $d)
 
 			<?php
 			if (isset($_POST['absen'])) {
-
 				$total = $jumlahsantri - 1;
 				$today = $_POST['tgl'];
 				$pertemuan = $_POST['pertemuan'];
@@ -163,16 +163,11 @@ foreach ($kelasMengajar as $d)
 					$pelajaran = $_POST['pelajaran'];
 					$ket = $_POST['ket-' . $i];
 
-
 					$cekAbsesnHariIni = mysqli_num_rows(mysqli_query($con, "SELECT * FROM _logabsensi WHERE tgl_absen='$today' AND id_mengajar='$pelajaran' AND id_santri='$id_santri' "));
-
 					if ($cekAbsesnHariIni > 0) {
-
-
 						echo "
 													<script type='text/javascript'>
 													setTimeout(function () { 
-
 													swal('Sorry!', 'Absen Hari ini sudah dilakukan', {
 													icon : 'error',
 													buttons: {        			
@@ -187,16 +182,11 @@ foreach ($kelasMengajar as $d)
 													} ,3000);   
 													</script>";
 					} else {
-
 						$insert = mysqli_query($con, "INSERT INTO _logabsensi VALUES (NULL,'$pelajaran','$id_santri','$today','$ket','$pertemuan')");
-
 						if ($insert) {
-
-
 							echo "
 											<script type='text/javascript'>
 											setTimeout(function () { 
-
 											swal('Berhasil', 'Absen hari ini telah tersimpan!', {
 											icon : 'success',
 											buttons: {        			
@@ -214,8 +204,6 @@ foreach ($kelasMengajar as $d)
 					}
 				}
 			}
-
 			?>
-
 		</div>
 	</div>

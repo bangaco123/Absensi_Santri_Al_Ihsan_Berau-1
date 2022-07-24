@@ -63,7 +63,7 @@
                 <tr>
                   <td>Alamat Santri</td>
                   <td>:</td>
-                  <td><textarea name="alamat" class="form-control" placeholder="Alamat Santri" autofocusrequired></textarea></td>
+                  <td><textarea name="alamat" class="form-control" placeholder="Alamat Santri" autofocus required></textarea></td>
                 </tr>
                 <tr>
                   <td>Kelas santri</td>

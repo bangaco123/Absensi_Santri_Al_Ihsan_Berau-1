@@ -12,8 +12,8 @@ WHERE tb_mengajar.id_guru='$data[id_guru]' AND tb_mengajar.id_mengajar='$_GET[pe
 foreach ($kelasMengajar as $d)
 
 ?>
-<div class="row-lg">
-	<div class="col-lg-12 mt-3">
+<div class="row-md">
+	<div class="col-md-12 mt-3">
 		<div class="card">
 			<div class="card-body">
 				<h1 class="text-center text-success">PONDOK AL-IHSAN</h1>
@@ -33,13 +33,10 @@ foreach ($kelasMengajar as $d)
 						<?php
 						} ?>
 					</b>
-
 				</div>
 			</div>
 		</div>
 	</div>
-
-
 
 	<?php
 	// tampilkan data absen setiap bulan, berdasarkan tahun ajaran yg aktif
@@ -54,71 +51,61 @@ foreach ($kelasMengajar as $d)
 		<?php
 		$bulan = date('m', strtotime($bulan['tgl_absen']));
 		?>
-		<div class="container ">
-			<div class="row ">
-				<div class="col-lg-7 ">
-					<div class="card text-left shadow table-responsive ">
-						<div class="card-body">
-							<h4 class="card-title text-center">Tabel Kehadiran Santri</h4>
-							<h5 class="card-title text-center">Bulan <?= 'namaBulan'($bulan); ?> <?= date('Y') ?></h5>
-							<hr>
-							<table class="table text-center">
-								<thead>
-									<tr>
-										<th scope="col">Hadir</th>
-										<th scope="col">sakit</th>
-										<th scope="col">Izin</th>
-										<th scope="col">Alfa</th>
-									</tr>
-								</thead>
-								<tbody>
-									<tr>
-										<td>
-											<?php
-											$hadir = mysqli_fetch_array(mysqli_query($con, "SELECT COUNT(ket) AS hadir FROM _logabsensi WHERE id_santri='$data[id_santri]' and ket='H' and MONTH(tgl_absen)='$bulan' "));
-											echo $hadir['hadir'];
-											?>
-										</td>
-										<td>
-											<?php
-											$sakit = mysqli_fetch_array(mysqli_query($con, "SELECT COUNT(ket) AS sakit FROM _logabsensi WHERE id_santri='$data[id_santri]' and ket='S' and MONTH(tgl_absen)='$bulan' "));
-											echo $sakit['sakit'];
-											?>
-										</td>
-										<td>
-											<?php
-											$izin = mysqli_fetch_array(mysqli_query($con, "SELECT COUNT(ket) AS izin FROM _logabsensi WHERE id_santri='$data[id_santri]' and ket='I' and MONTH(tgl_absen)='$bulan' "));
-											echo $izin['izin'];
-											?>
-										</td>
-										<td>
-											<?php
-											$alfa = mysqli_fetch_array(mysqli_query($con, "SELECT COUNT(ket) AS alfa FROM _logabsensi WHERE id_santri='$data[id_santri]' and ket='A' and MONTH(tgl_absen)='$bulan' "));
-											echo $alfa['alfa'];
-											?>
-										</td>
-									</tr>
-							</table>
-						</div>
-					</div>
-				</div>
-				<div class="col-lg-5">
-					<div class="card shadow">
-						<div class="card-body">
-							<h4 class="card-title text-center mt-0">Diagram Kehadiran Santri</h4>
-							<div>
-								<canvas id="data"></canvas>
-							</div>
-						</div>
+		<!-- <div class="container "> -->
+		<div class="row-md ">
+			<div class="col-md-12 ">
+				<div class="card text-left shadow table-responsive ">
+					<div class="card-body">
+						<h4 class="card-title text-center">Tabel Kehadiran Santri</h4>
+						<h5 class="card-title text-center">Bulan <?= 'namaBulan'($bulan); ?> <?= date('Y') ?></h5>
+						<hr>
+						<table class="table text-center">
+							<thead>
+								<tr>
+									<th scope="col">Hadir</th>
+									<th scope="col">sakit</th>
+									<th scope="col">Izin</th>
+									<th scope="col">Alfa</th>
+									<!-- <th scope="col">guru</th> -->
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td>
+										<?php
+										$hadir = mysqli_fetch_array(mysqli_query($con, "SELECT COUNT(ket) AS hadir FROM _logabsensi WHERE id_santri='$data[id_santri]' and ket='H' and MONTH(tgl_absen)='$bulan' "));
+										echo $hadir['hadir'];
+										?>
+									</td>
+									<td>
+										<?php
+										$sakit = mysqli_fetch_array(mysqli_query($con, "SELECT COUNT(ket) AS sakit FROM _logabsensi WHERE id_santri='$data[id_santri]' and ket='S' and MONTH(tgl_absen)='$bulan' "));
+										echo $sakit['sakit'];
+										?>
+									</td>
+									<td>
+										<?php
+										$izin = mysqli_fetch_array(mysqli_query($con, "SELECT COUNT(ket) AS izin FROM _logabsensi WHERE id_santri='$data[id_santri]' and ket='I' and MONTH(tgl_absen)='$bulan' "));
+										echo $izin['izin'];
+										?>
+									</td>
+									<td>
+										<?php
+										$alfa = mysqli_fetch_array(mysqli_query($con, "SELECT COUNT(ket) AS alfa FROM _logabsensi WHERE id_santri='$data[id_santri]' and ket='A' and MONTH(tgl_absen)='$bulan' "));
+										echo $alfa['alfa'];
+										?>
+									</td>
+								</tr>
+						</table>
 					</div>
 				</div>
 			</div>
 		<?php } ?>
-		</div>
+		<!-- </div> -->
 
-		<div class="row-lg my-2">
+		<div class="row-md my-2">
 			<div class="col">
 				<a href="javascript:history.back()" class="btn btn-default btn-block"><i class="fas fa-arrow-circle-left"></i> Kembali</a>
 			</div>
 		</div>
-</div>
+		</div>

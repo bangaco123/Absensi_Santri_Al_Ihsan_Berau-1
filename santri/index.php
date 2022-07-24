@@ -172,8 +172,11 @@ WHERE tb_mengajar.id_guru='$data[id_guru]' AND tb_thajaran.status=1 ");
 							</a>
 						</li>
 
-
-
+						<li class="nav-item">
+							<a href="?page=kehadiran&act=diagram">
+								<i class="fas fa-chart-pie"></i>
+								<p>Diagram</p>
+							</a>
 						</li>
 
 						<li class="nav-item active mt-3">
@@ -199,10 +202,8 @@ WHERE tb_mengajar.id_guru='$data[id_guru]' AND tb_thajaran.status=1 ");
 				if ($page == 'kehadiran') {
 					if ($act == '') {
 						include 'modul/absen/kehadiran.php';
-					}
-				} elseif ($page == 'rekap') {
-					if ($act == '') {
-						include 'modul/rekap/rekap_absen.php';
+					} elseif ($act == 'diagram') {
+						include 'modul/absen/diagram.php';
 					}
 				} elseif ($page == 'change') {
 					include 'modul/user/ganti_password.php';
@@ -272,19 +273,23 @@ WHERE tb_mengajar.id_guru='$data[id_guru]' AND tb_thajaran.status=1 ");
 			datasets: [{
 				label: 'Data Kehadiran',
 				data: [<?php
-								$hadir = mysqli_fetch_array(mysqli_query($con, "SELECT COUNT(ket) AS hadir FROM _logabsensi WHERE id_santri='$data[id_santri]' and ket='H' and MONTH(tgl_absen)='$bulan' "));
+								$hadir = mysqli_fetch_array(mysqli_query($con, "SELECT COUNT(ket) AS hadir FROM _logabsensi 
+								WHERE id_santri='$data[id_santri]' and ket='H'"));
 								echo $hadir['hadir'];
 								?>,
 					<?php
-					$sakit = mysqli_fetch_array(mysqli_query($con, "SELECT COUNT(ket) AS sakit FROM _logabsensi WHERE id_santri='$data[id_santri]' and ket='S' and MONTH(tgl_absen)='$bulan' "));
+					$sakit = mysqli_fetch_array(mysqli_query($con, "SELECT COUNT(ket) AS sakit FROM _logabsensi 
+					WHERE id_santri='$data[id_santri]' and ket='S' "));
 					echo $sakit['sakit'];
 					?>,
 					<?php
-					$izin = mysqli_fetch_array(mysqli_query($con, "SELECT COUNT(ket) AS izin FROM _logabsensi WHERE id_santri='$data[id_santri]' and ket='I' and MONTH(tgl_absen)='$bulan' "));
+					$izin = mysqli_fetch_array(mysqli_query($con, "SELECT COUNT(ket) AS izin FROM _logabsensi
+					WHERE id_santri='$data[id_santri]' and ket='I' "));
 					echo $izin['izin'];
 					?>,
 					<?php
-					$alfa = mysqli_fetch_array(mysqli_query($con, "SELECT COUNT(ket) AS alfa FROM _logabsensi WHERE id_santri='$data[id_santri]' and ket='A' and MONTH(tgl_absen)='$bulan' "));
+					$alfa = mysqli_fetch_array(mysqli_query($con, "SELECT COUNT(ket) AS alfa FROM _logabsensi 
+					WHERE id_santri='$data[id_santri]' and ket='A' "));
 					echo $alfa['alfa'];
 					?>
 				],
@@ -311,7 +316,7 @@ WHERE tb_mengajar.id_guru='$data[id_guru]' AND tb_thajaran.status=1 ");
 		};
 
 		const config = {
-			type: 'doughnut',
+			type: 'bar',
 			data: data,
 			options: {},
 		};

@@ -105,8 +105,9 @@ $tglTerakhir = date('t', strtotime(1));
 <table width="100%" border="1" cellpadding="2" style="border-collapse: collapse;">
 	<tr>
 		<td rowspan="2" bgcolor="#EFEBE9" align="center">NO</td>
+		<td rowspan="2" bgcolor="#EFEBE9">NIS</td>
 		<td rowspan="2" bgcolor="#EFEBE9">NAMA SANTRI</td>
-		<td rowspan="2" bgcolor="#EFEBE9" align="center">L/P</td>
+		<td rowspan="2" bgcolor="#EFEBE9" align="center">L</td>
 		<td colspan="<?= $tglTerakhir; ?>" style="padding: 8px;">PERTEMUAN BULAN : <b style="text-transform: uppercase;"><?php ($bulan); ?> <?= date('m-Y', strtotime($tglBulan)); ?></b></td>
 		<td colspan="5" align="center" bgcolor="#EFEBE9">JUMLAH</td>
 	</tr>
@@ -134,6 +135,7 @@ $tglTerakhir = date('t', strtotime(1));
 
 		<tr bgcolor="<?= $warna; ?>">
 			<td align="center"><?= $no++; ?></td>
+			<td><?= $ds['nis']; ?></td>
 			<td><?= $ds['nama_santri']; ?></td>
 			<td align="center"><?= $ds['jk']; ?></td>
 			<?php

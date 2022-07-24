@@ -125,6 +125,7 @@
 			<div class="sidebar sidebar-style-2 ">
 				<div class="sidebar-wrapper scrollbar scrollbar-inner">
 					<div class="sidebar-content">
+
 						<div class="user">
 							<div class="info">
 								<a data-toggle="collapse" href="#collapseExample" aria-expanded="true">
@@ -151,6 +152,7 @@
 								</div>
 							</div>
 						</div>
+
 						<ul class="nav nav-success">
 							<li class="nav-item active">
 								<a href="dashboard.php" class="collapsed">
@@ -158,18 +160,21 @@
 									<p>Dashboard</p>
 								</a>
 							</li>
+
 							<li class="nav-section">
 								<span class="sidebar-mini-icon">
 									<i class="fa fa-ellipsis-h"></i>
 								</span>
 								<h4 class="text-section">Main Utama</h4>
 							</li>
+
 							<li class="nav-item">
 								<a data-toggle="collapse" href="#base">
 									<i class="fas fa-folder-open"></i>
 									<p>Data Umum</p>
 									<span class="caret"></span>
 								</a>
+
 								<div class="collapse" id="base">
 									<ul class="nav nav-collapse">
 										<li>
@@ -195,6 +200,7 @@
 									</ul>
 								</div>
 							</li>
+
 							<li class="nav-item">
 								<a data-toggle="collapse" href="#sidebarLayouts">
 									<i class="fas fa-calendar-check"></i>
@@ -216,6 +222,7 @@
 									</ul>
 								</div>
 							</li>
+
 							<li class="nav-item">
 								<a data-toggle="collapse" href="#guru">
 									<i class="fas fa-user-tie"></i>
@@ -260,7 +267,7 @@
 								</div>
 							</li>
 
-							<!-- <li class="nav-item">
+							<li class="nav-item">
 								<a data-toggle="collapse" href="#rekapAbsen">
 									<i class="fas fa-clipboard-check"></i>
 									<p>Rekap Absen</p>
@@ -279,13 +286,7 @@
 										<?php } ?>
 									</ul>
 								</div>
-							</li> -->
-
-							<!-- <li class="nav-item">
-								<a href="?page=rekap&kelas=<?= $k['id_mkelas'] ?> ">
-									<span class="sub-item">Rekap PerSemester</span>
-								</a>
-							</li> -->
+							</li>
 
 							<li class="nav-item active mt-3">
 								<a href="logout.php" class="collapsed">
@@ -294,12 +295,21 @@
 								</a>
 							</li>
 
+							<li class="nav-item active mt-3">
+								<a href="logout.php" class="collapsed">
+									<p>coba keluar</p>
+
+								</a>
+
+							</li>
+
 						</ul>
 					</div>
 				</div>
 			</div>
 			<!-- End Sidebar -->
 
+			<!-- Halaman Dinamis -->
 			<div class="main-panel">
 				<div class="content">
 					<!-- Halaman dinamis -->
@@ -501,6 +511,8 @@
 				<!-- end modal pengaturan akun -->
 
 			</div>
+			<!-- End Halaman Dinamis -->
+
 		</div>
 
 		<!--   Core JS Files   -->
@@ -640,49 +652,6 @@
 			);
 		</script>
 		<!-- chart -->
-
-		<!-- coba alert -->
-		<!-- <script>
-			const tombol = document.querySelector('#tombol');
-			tombol.addEventListener('click', function() {
-
-				swal({
-					title: 'Are you sure?',
-					text: "You won't be able to revert this!",
-					type: 'warning',
-					buttons: {
-						cancel: {
-							visible: true,
-							text: 'No, cancel!',
-							className: 'btn btn-danger'
-						},
-						confirm: {
-							text: 'Yes, delete it!',
-							className: 'btn btn-success'
-						}
-					}
-				}).then((willDelete) => {
-					if (willDelete) {
-						swal("Poof! Your imaginary file has been deleted!", {
-							icon: "success",
-							buttons: {
-								confirm: {
-									className: 'btn btn-success'
-								}
-							}
-						});
-					} else {
-						swal("Your imaginary file is safe!", {
-							buttons: {
-								confirm: {
-									className: 'btn btn-success'
-								}
-							}
-						});
-					}
-				});
-			});
-		</script> -->
 
 	</body>
 

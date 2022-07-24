@@ -48,12 +48,12 @@ include '../config/db.php';
 					<div class="wrap-input100 validate-input" data-validate="Valid email is required: ex@abc.xyz">
 						<input class="input100 has-val" type="text" name="username">
 						<span class="focus-input100"></span>
-						<span class="label-input100" data-placeholder="Username">Nama User</span>
+						<span class="label-input100" data-placeholder="Username">Username</span>
 					</div>
 					<div class="wrap-input100 validate-input" data-validate="password">
 						<input class="input100 has-val" type="password" name="password">
 						<span class="focus-input100"></span>
-						<span class="label-input100" data-placeholder="Password">Kata sandi</span>
+						<span class="label-input100" data-placeholder="Password">Password</span>
 					</div>
 					<div class="container-login100-form-btn">
 						<button type="submit" class="login100-form-btn">
